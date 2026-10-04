@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Snippet AI Reviewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Code Snippet Reviewer</h1>
+      <p class="sub">Paste a snippet and get an AI review. Nothing you paste is ever executed.</p>
+    </header>
+
+    <div class="editor">
+      <textarea id="codeInput" class="code-input" placeholder="Paste your code here…" spellcheck="false"
+        maxlength="5000"></textarea>
+      <div class="editor-footer">
+        <span id="counter" class="counter">0 / 5000</span>
+        <button id="reviewBtn" class="btn" disabled>Review code</button>
+      </div>
+    </div>
+
+    <div id="state" class="state" hidden></div>
+
+    <!-- Raw streaming preview: shown while Claude is still generating,
+         hidden once the full response is parsed into the structured view below. -->
+    <pre id="streamRaw" class="stream-raw" hidden></pre>
+
+    <section id="summary" class="summary" hidden>
+      <p id="summaryText"></p>
+      <p id="langGuess" class="lang-guess"></p>
+    </section>
+
+    <ul id="comments" class="comments"></ul>
+  </main>
+
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>

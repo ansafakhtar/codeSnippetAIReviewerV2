@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Routes any request to /api/* to our single Express-wrapped function.
+# Netlify passes the remainder after /api/ through to the function, which
+# matches the routes defined in src/app.js ("/review", "/limit").
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
